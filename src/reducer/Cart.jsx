@@ -14,9 +14,16 @@ const Cart= createSlice({
             let itemID = action.payload
             state.cartItem = state.cartItem.filter((item) => item.id != itemID.id )
         },
+        calculateTotalPrice: (state) => {
+        let total = 0
+        state.cartItem.forEach((item) => {
+         total += item.price;
+        })
+          state.totalPrice = total;
+        }
 
 
     }
 })
-export const{addCart,removeItemFromCart}= Cart.actions
+export const{addCart, removeItemFromCart,calculateTotalPrice}= Cart.actions
 export default Cart.reducer

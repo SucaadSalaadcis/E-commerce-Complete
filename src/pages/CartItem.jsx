@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux"
-import { removeItemFromCart } from "../reducer/Cart";
+import { calculateTotalPrice, removeItemFromCart } from "../reducer/Cart";
 
 
 function CartItem({items}) {
@@ -7,6 +7,7 @@ function CartItem({items}) {
 
     const handleRemove = () => {
      disptch(removeItemFromCart(items))
+     disptch(calculateTotalPrice())
     }
     
   return (
